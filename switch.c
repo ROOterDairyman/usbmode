@@ -412,7 +412,7 @@ static const struct {
 	[MODE_HUAWEINEW] = { "HuaweiNew", handle_huaweinew },
 	[MODE_SIERRA] = { "Sierra", handle_sierra },
 	[MODE_SONY] = { "Sony", handle_sony },
-	[MODE_OPTION] = { "OptionMode", handle_optionmode },
+	[MODE_OPTION] = { "Option", handle_optionmode },
 	[MODE_QISDA] = { "Qisda", handle_qisda },
 	[MODE_GCT] = { "GCT", handle_gct },
 	[MODE_KOBIL] = { "Kobil", handle_kobil },
