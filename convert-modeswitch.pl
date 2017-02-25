@@ -64,6 +64,7 @@ my %options = (
 	HuaweiNewMode => $mode_option,
 	SierraMode => $mode_option,
 	SonyMode => $mode_option,
+	OptionMode => $mode_option,
 	QisdaMode => $mode_option,
 	GCTMode => $mode_option,
 	KobilMode => $mode_option,

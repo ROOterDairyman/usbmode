@@ -152,6 +152,20 @@ static void handle_huaweinew(struct usbdev_data *data, struct blob_attr **tb)
 	send_messages(data, msgs, ARRAY_SIZE(msgs));
 }
 
+static void handle_optionmode(struct usbdev_data *data, struct blob_attr **tb)
+{
+	static struct msg_entry msgs[] = {
+		{
+			"\x55\x53\x42\x43\x12\x34\x56\x78\x00\x00\x00\x00\x00\x00\x06\x10"
+			"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 31
+		}
+	};
+
+	detach_driver(data);
+	data->need_response = false;
+	send_messages(data, msgs, ARRAY_SIZE(msgs));
+}
+
 static void handle_standardeject(struct usbdev_data *data, struct blob_attr **tb)
 {
 	static struct msg_entry msgs[] = {
@@ -377,6 +391,7 @@ enum {
 	MODE_SIERRA,
 	MODE_STDEJECT,
 	MODE_SONY,
+	MODE_OPTION,
 	MODE_QISDA,
 	MODE_GCT,
 	MODE_KOBIL,
@@ -397,6 +412,7 @@ static const struct {
 	[MODE_HUAWEINEW] = { "HuaweiNew", handle_huaweinew },
 	[MODE_SIERRA] = { "Sierra", handle_sierra },
 	[MODE_SONY] = { "Sony", handle_sony },
+	[MODE_OPTION] = { "OptionMode", handle_optionmode },
 	[MODE_QISDA] = { "Qisda", handle_qisda },
 	[MODE_GCT] = { "GCT", handle_gct },
 	[MODE_KOBIL] = { "Kobil", handle_kobil },
